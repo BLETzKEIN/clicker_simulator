@@ -15,3 +15,4 @@ def events():
                 print(model.moneys)
             else:
                 print("НЕ ДЕЛАЙ ТАК")
+    model.show_rects = bool(pygame.key.get_pressed()[pygame.K_TAB])
