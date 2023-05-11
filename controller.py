@@ -14,7 +14,7 @@ def events():
                 model.upgrade()
             elif s.button in [pygame.BUTTON_LEFT, pygame.BUTTON_RIGHT]:
                 model.click()
-                print(model.moneys)
+                # print(model.moneys)
             else:
                 print("НЕ ДЕЛАЙ ТАК")
     model.show_rects = bool(pygame.key.get_pressed()[pygame.K_TAB])
