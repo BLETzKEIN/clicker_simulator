@@ -33,7 +33,14 @@ rect_musicant = pygame.Rect([250,300,300,400])
 
 
 import button
-dsf = button.Button()
+dsf = button.Button(20,[55,97,148])
 dsf.a -= 10
 dsf.plus_piat()
+dsf.minus(7)
 print(dsf)
+
+dse = button.Button(55,[197,36,23])
+dse.plus_piat()
+dse.plus_piat()
+dse.minus(25)
+print("Hello from platok")

@@ -32,6 +32,8 @@ def vyalia():
     display.blit(level_text,[model.rect_bomj.left+30,model.rect_bomj.top-30])
     display.blit(musicant,model.rect_musicant)
     tab()
+    model.dse.draw(display)
+    model.dsf.draw(display)
     display_mod.flip()
 
 def tab():
