@@ -1,3 +1,5 @@
+import random
+
 import pygame
 
 
@@ -28,25 +30,42 @@ rect_musicant = pygame.Rect([250, 300, 300, 400])
 
 
 import button
-dsf = button.Button(20, [55, 97, 148],[700,350])
 
+def create():
+    defes = button.Button(random.randint(5,45),
+                          [random.randint(5,255),random.randint(5,255),random.randint(5,255)],
+                          [random.randint(0,1400),random.randint(0,700)],dsf)
+    return defes
+
+dsf = button.Button(20, [55, 97, 148],[700,350],None)
+dsf.glavnyi = dsf
 dsf.a -= 10
 dsf.plus_piat()
 dsf.minus(7)
 print(dsf)
-dse = button.Button(55, [197, 36, 23],[100,100])
+dse = button.Button(55, [197, 36, 23],[100,100],dsf)
 
 dse.plus_piat()
 dse.plus_piat()
 dse.minus(25)
 
-dsg = button.Button(10,[32,195,225],[400,200])
+dsg = button.Button(10,[32,195,225],[400,200],dsf)
+
+a = []
+a.append(dsf)
+a.append(dsg)
+a.append(dse)
 
 print("Hello from platok")
+for o in range(200):
+    a.append(create())
 
 def always ():
-    dsf.rost()
-    dse.rost()
-    dsg.rost()
+    for y in a :
+        y.rost()
+#     dsf.rost()
+#     dse.rost()
+#     dsg.rost()
+#     # a[].rost()
 
 

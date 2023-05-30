@@ -6,7 +6,8 @@ import pygame
 # otbivka_y = 0
 # otbivka_x = 0
 class Button:
-    def __init__(self, a, color, mesto):
+    def __init__(self, a, color, mesto, glavnyi):
+        self.glavnyi = glavnyi
         self.a = a
         self.color = color
         self.mesto = mesto
@@ -23,6 +24,8 @@ class Button:
 
     def draw(self, surface):
         pygame.draw.circle(surface, self.color, self.mesto, self.a)
+        pygame.draw.circle(surface, [1, 1, 1], self.mesto, 3)
+        pygame.draw.line(surface, [1, 1, 1], self.mesto, self.glavnyi.mesto)
 
     def rost(self):
         # global otbivka_y,otbivka_x
@@ -44,7 +47,7 @@ class Button:
 
         if self.a + self.mesto[0] >= 1400:
             self.otbivka_x = 1
-        if self.mesto[0] - self.a <=0:
+        if self.mesto[0] - self.a <= 0:
             self.otbivka_x = 0
 
         if self.otbivka_x == 0:

@@ -23,9 +23,11 @@ def vyalia():
     ypgreid_prirost = f.render("за апгреид будет +" + str(model.za_click_upgrade) + " за клик", True, [197, 36, 23],
                                [52, 12, 10])
     display.blit(place, [0, 0])
-    model.dse.draw(display)
-    model.dsf.draw(display)
-    model.dsg.draw(display)
+    for u in model.a:
+        u.draw(display)
+    # model.dse.draw(display)
+    # model.dsf.draw(display)
+    # model.dsg.draw(display)
     level_text = f.render("уровень " + str(model.level_bomj), True, [197, 36, 23], [52, 12, 10])
     display.blit(up, [model.rect.left, model.rect.top])
     display.blit(bomj, model.rect_bomj.topleft)
