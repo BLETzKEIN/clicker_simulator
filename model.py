@@ -34,29 +34,31 @@ import button
 def create():
     defes = button.Button(random.randint(5,45),
                           [random.randint(5,255),random.randint(5,255),random.randint(5,255)],
-                          [random.randint(0,1400),random.randint(0,700)],dsf)
+                          [random.randint(0,1400),random.randint(0,700)],dsf,a)
     return defes
 
-dsf = button.Button(20, [55, 97, 148],[700,350],None)
+a = []
+
+dsf = button.Button(20, [55, 97, 148],[700,350],None,a)
 dsf.glavnyi = dsf
 dsf.a -= 10
 dsf.plus_piat()
 dsf.minus(7)
 print(dsf)
-dse = button.Button(55, [197, 36, 23],[100,100],dsf)
+dse = button.Button(55, [197, 36, 23],[100,100],dsf,a)
 
 dse.plus_piat()
 dse.plus_piat()
 dse.minus(25)
+# dsf.friend = dse
 
-dsg = button.Button(10,[32,195,225],[400,200],dsf)
+# dsg = button.Button(10,[32,195,225],[400,200],dsf)
 
-a = []
 a.append(dsf)
-a.append(dsg)
+# a.append(dsg)
 a.append(dse)
 
-print("Hello from platok")
+# print("Hello from platok")
 for o in range(200):
     a.append(create())
 
