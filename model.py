@@ -59,7 +59,7 @@ a.append(dsf)
 a.append(dse)
 
 # print("Hello from platok")
-for o in range(200):
+for o in range(100):
     a.append(create())
 
 def always ():

@@ -12,8 +12,8 @@ class Button:
         self.color = color
         self.mesto = mesto
         self.skorost_rosta = random.randint(1, 3)
-        self.otbivka_y = 0
-        self.otbivka_x = 0
+        self.otbivka_y = random.randint(0, 1)
+        self.otbivka_x = random.randint(0, 1)
         self.friend = friend
         # self.symma_radiysov = self.a + self.friend.a
         print("dxgfdgdgfghxdg")
@@ -27,21 +27,27 @@ class Button:
     def draw(self, surface):
         pygame.draw.circle(surface, self.color, self.mesto, self.a)
         pygame.draw.circle(surface, [1, 1, 1], self.mesto, 3)
-        pygame.draw.line(surface, [1, 1, 1], self.mesto, self.glavnyi.mesto)
+        # pygame.draw.line(surface, [1, 1, 1], self.mesto, self.glavnyi.mesto)
 
     def kasanie(self):
+        ForT = []
         for i in self.friend:
-            if math.dist(i.mesto, self.mesto) > i.a + self.a:
-                return False
-            else:
-                return True
+            if self is not i:
+                if math.dist(i.mesto, self.mesto) > i.a + self.a:
+                    ForT.append(False)
 
+                else:
+                    ForT.append(True)
+        for k in ForT:
+            if k == True:
+                return True
+        return False
 
     def rost(self):
-        if  self.kasanie()==False and self.a < 300:
+        while self.kasanie() == False and self.a < 300:
             self.a += self.skorost_rosta / 3
         else:
-            while self.kasanie()==True and self.a > 0:
+            while self.kasanie() == True and self.a > 0:
                 self.a -= self.skorost_rosta / 3
         self.otbivka()
 
@@ -52,10 +58,10 @@ class Button:
             self.otbivka_y = 0
 
         if self.otbivka_y == 0:
-            self.mesto[1] += 1
+            self.mesto[1] += random.randint(1, 3)
 
         if self.otbivka_y == 1:
-            self.mesto[1] -= 1
+            self.mesto[1] -= random.randint(1, 3)
 
         if self.a + self.mesto[0] >= 1400:
             self.otbivka_x = 1
@@ -63,9 +69,9 @@ class Button:
             self.otbivka_x = 0
 
         if self.otbivka_x == 0:
-            self.mesto[0] += 1
+            self.mesto[0] += random.randint(1, 3)
 
         if self.otbivka_x == 1:
-            self.mesto[0] -= 1
+            self.mesto[0] -= random.randint(1, 3)
 
             # self.mesto[0] += 1
