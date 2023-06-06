@@ -27,6 +27,7 @@ rect = pygame.Rect([1400 - 750, 0, 50, 50])
 rect_bomj = pygame.Rect([0, 450, 250, 250])
 show_rects = False
 rect_musicant = pygame.Rect([250, 300, 300, 400])
+vecherinka = True
 
 
 import button
@@ -63,11 +64,17 @@ for o in range(100):
     a.append(create())
 
 def always ():
-    for y in a :
-        y.rost()
+    if vecherinka == True:
+        for y in a :
+            y.rost()
+
 #     dsf.rost()
 #     dse.rost()
 #     dsg.rost()
 #     # a[].rost()
+import knopka
+dss = knopka.Knopka([100,100,50,50],'C:/Users/Амир/Desktop/6yqh6b.png')
+dss2 = knopka.Knopka([200,200,100,100],"sprites/controls/plus.png")
+
 
 

@@ -23,8 +23,11 @@ def vyalia():
     ypgreid_prirost = f.render("за апгреид будет +" + str(model.za_click_upgrade) + " за клик", True, [197, 36, 23],
                                [52, 12, 10])
     display.blit(place, [0, 0])
-    for u in model.a:
-        u.draw(display)
+    if model.vecherinka == True:
+        for u in model.a:
+                u.draw(display)
+    model.dss.draw(display)
+    model.dss2.draw(display)
     # model.dse.draw(display)
     # model.dsf.draw(display)
     # model.dsg.draw(display)
