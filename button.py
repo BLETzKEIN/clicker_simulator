@@ -15,6 +15,8 @@ class Button:
         self.otbivka_y = random.randint(0, 1)
         self.otbivka_x = random.randint(0, 1)
         self.friend = friend
+        self.skorost_x = random.randint(1,3)
+        self.skorost_y = random.randint(1,3)
         # self.symma_radiysov = self.a + self.friend.a
         print("dxgfdgdgfghxdg")
 
@@ -26,7 +28,7 @@ class Button:
 
     def draw(self, surface):
         pygame.draw.circle(surface, self.color, self.mesto, self.a)
-        pygame.draw.circle(surface, [1, 1, 1], self.mesto, 3)
+        pygame.draw.circle(surface, [1, 1, 1], self.mesto, self.skorost_x)
         # pygame.draw.line(surface, [1, 1, 1], self.mesto, self.glavnyi.mesto)
 
     def kasanie(self):
@@ -58,10 +60,10 @@ class Button:
             self.otbivka_y = 0
 
         if self.otbivka_y == 0:
-            self.mesto[1] += random.randint(1, 3)
+            self.mesto[1] += self.skorost_y
 
         if self.otbivka_y == 1:
-            self.mesto[1] -= random.randint(1, 3)
+            self.mesto[1] -= self.skorost_y
 
         if self.a + self.mesto[0] >= 1400:
             self.otbivka_x = 1
@@ -69,9 +71,21 @@ class Button:
             self.otbivka_x = 0
 
         if self.otbivka_x == 0:
-            self.mesto[0] += random.randint(1, 3)
+            self.mesto[0] += self.skorost_x
 
         if self.otbivka_x == 1:
-            self.mesto[0] -= random.randint(1, 3)
+            self.mesto[0] -= self.skorost_x
 
             # self.mesto[0] += 1
+
+    def events (self,b) :
+        for i in b:
+            if i.type == pygame.KEYDOWN:
+                if i.key == pygame.K_SPACE:
+                    self.color = [random.randint(0,250),random.randint(0,250),random.randint(0,250)]
+            if i.type == pygame.MOUSEBUTTONDOWN:
+                r = math.dist(i.pos,self.mesto)
+                if i.button == pygame.BUTTON_LEFT:
+                    if r <= self.a:
+                        self.skorost_x += 3
+                        self.skorost_y += 3

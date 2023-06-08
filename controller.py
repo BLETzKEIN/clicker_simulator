@@ -1,11 +1,14 @@
 import pygame
 from pygame import event
 # from pygame import *
+import button
 import model
 
 
 def events():
     b = event.get()
+    for t in model.a:
+        t.events(b)
     for s in b:
         if s.type == pygame.QUIT:
             exit(666)
