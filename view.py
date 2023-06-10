@@ -26,8 +26,8 @@ def vyalia():
     if model.vecherinka == True:
         for u in model.a:
                 u.draw(display)
-    model.dss.draw(display)
-    model.dss2.draw(display)
+    model.dss.draw(display,model.show_rects)
+    model.dss2.draw(display,model.show_rects)
     # model.dse.draw(display)
     # model.dsf.draw(display)
     # model.dsg.draw(display)

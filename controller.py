@@ -9,6 +9,8 @@ def events():
     b = event.get()
     for t in model.a:
         t.events(b)
+    for i in model.buttons:
+        i.events(b)
     for s in b:
         if s.type == pygame.QUIT:
             exit(666)

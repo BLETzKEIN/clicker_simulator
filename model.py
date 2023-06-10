@@ -76,5 +76,6 @@ import knopka
 dss = knopka.Knopka([100,100,50,50],'C:/Users/Амир/Desktop/6yqh6b.png')
 dss2 = knopka.Knopka([200,200,100,100],"sprites/controls/plus.png")
 
-
+buttons = [dss]
+buttons.append(dss2)
 
