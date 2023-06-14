@@ -1,6 +1,7 @@
 import model
 import pygame
 from pygame import image, display as display_mod
+import knopka
 
 pygame.init()
 f = pygame.font.SysFont("arial", 30, True, False)
@@ -15,6 +16,15 @@ bomj = pygame.transform.scale(bom, model.rect_bomj.size)
 musican = image.load("sprites/worker/worker2_inv.png")
 musicant = pygame.transform.scale(musican, model.rect_musicant.size)
 
+c = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_HAND)
+d = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_ARROW)
+
+def cursor_fon():
+    for y in model.buttons:
+        if y.fon :
+            pygame.mouse.set_cursor(c)
+        pygame.mouse.set_cursor(d)
+
 
 def vyalia():
     moneyts = f.render(str(int(model.moneys)) + " монет", True, [197, 36, 23], [52, 12, 10])
@@ -23,11 +33,12 @@ def vyalia():
     ypgreid_prirost = f.render("за апгреид будет +" + str(model.za_click_upgrade) + " за клик", True, [197, 36, 23],
                                [52, 12, 10])
     display.blit(place, [0, 0])
+    cursor_fon()
     if model.vecherinka == True:
         for u in model.a:
-                u.draw(display)
-    model.dss.draw(display,model.show_rects)
-    model.dss2.draw(display,model.show_rects)
+            u.draw(display)
+    model.dss.draw(display, model.show_rects)
+    model.dss2.draw(display, model.show_rects)
     # model.dse.draw(display)
     # model.dsf.draw(display)
     # model.dsg.draw(display)

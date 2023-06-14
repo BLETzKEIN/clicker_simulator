@@ -15,8 +15,8 @@ class Button:
         self.otbivka_y = random.randint(0, 1)
         self.otbivka_x = random.randint(0, 1)
         self.friend = friend
-        self.skorost_x = random.randint(1,3)
-        self.skorost_y = random.randint(1,3)
+        self.skorost_x = random.randint(1, 3)
+        self.skorost_y = random.randint(1, 3)
         # self.symma_radiysov = self.a + self.friend.a
         print("dxgfdgdgfghxdg")
 
@@ -78,13 +78,14 @@ class Button:
 
             # self.mesto[0] += 1
 
-    def events (self,b) :
+    def events(self, b):
         for i in b:
             if i.type == pygame.KEYDOWN:
                 if i.key == pygame.K_SPACE:
-                    self.color = [random.randint(0,250),random.randint(0,250),random.randint(0,250)]
+                    self.color = [random.randint(0, 250), random.randint(0, 250), random.randint(0, 250)]
+
             if i.type == pygame.MOUSEBUTTONDOWN:
-                r = math.dist(i.pos,self.mesto)
+                r = math.dist(i.pos, self.mesto)
                 if i.button == pygame.BUTTON_LEFT:
                     if r <= self.a:
                         self.skorost_x += 3

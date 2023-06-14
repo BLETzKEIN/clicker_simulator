@@ -3,6 +3,7 @@ import random
 import pygame
 
 
+
 def click():
     global moneys
     moneys += za_click
