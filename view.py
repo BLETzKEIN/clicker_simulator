@@ -19,11 +19,15 @@ musicant = pygame.transform.scale(musican, model.rect_musicant.size)
 c = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_HAND)
 d = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_ARROW)
 
+
 def cursor_fon():
+    pygame.mouse.set_cursor(d)
     for y in model.buttons:
-        if y.fon :
+        if y.fon:
             pygame.mouse.set_cursor(c)
-        pygame.mouse.set_cursor(d)
+    for y in model.a:
+        if y.fon:
+            pygame.mouse.set_cursor(c)
 
 
 def vyalia():

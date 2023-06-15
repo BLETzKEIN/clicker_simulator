@@ -3,6 +3,7 @@ from pygame import event
 # from pygame import *
 import button
 import model
+import knopka
 
 
 def events():
@@ -11,6 +12,7 @@ def events():
         t.events(b)
     for i in model.buttons:
         i.events(b)
+
     for s in b:
         if s.type == pygame.QUIT:
             exit(666)

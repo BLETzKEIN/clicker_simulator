@@ -11,6 +11,7 @@ class Knopka:
 
     def draw(self, surface: pygame.Surface, show):
         if self.fon:
+
             pygame.draw.rect(surface, [33, 78, 197], self.rect)
             pygame.draw.rect(surface, [43, 88, 207], self.rect,3)
 
@@ -22,6 +23,7 @@ class Knopka:
         for i in b:
             if self.rect.collidepoint(pygame.mouse.get_pos()):
                 self.fon = True
+
             else:
                 self.fon = False
             if i.type == pygame.MOUSEBUTTONDOWN:

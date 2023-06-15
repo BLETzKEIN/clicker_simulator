@@ -61,8 +61,8 @@ a.append(dsf)
 # a.append(dse)
 
 # print("Hello from platok")
-# for o in range(100):
-#     a.append(create())
+for o in range(100):
+    a.append(create())
 
 def always ():
     if vecherinka == True:

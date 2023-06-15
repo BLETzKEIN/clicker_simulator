@@ -7,6 +7,7 @@ import pygame
 # otbivka_x = 0
 class Button:
     def __init__(self, a, color, mesto, glavnyi, friend):
+        self.fon = False
         self.glavnyi = glavnyi
         self.a = a
         self.color = color
@@ -27,6 +28,8 @@ class Button:
         self.a -= min
 
     def draw(self, surface):
+        if self.fon:
+            pygame.draw.circle(surface, [0,0,0], self.mesto, self.a+3,3)
         pygame.draw.circle(surface, self.color, self.mesto, self.a)
         pygame.draw.circle(surface, [1, 1, 1], self.mesto, self.skorost_x)
         # pygame.draw.line(surface, [1, 1, 1], self.mesto, self.glavnyi.mesto)
@@ -79,6 +82,11 @@ class Button:
             # self.mesto[0] += 1
 
     def events(self, b):
+        if math.dist(pygame.mouse.get_pos(), self.mesto) <= self.a:
+            self.fon = True
+        else:
+            self.fon = False
+
         for i in b:
             if i.type == pygame.KEYDOWN:
                 if i.key == pygame.K_SPACE:
