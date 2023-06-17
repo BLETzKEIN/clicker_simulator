@@ -19,7 +19,7 @@ class Button:
         self.skorost_x = random.randint(1, 3)
         self.skorost_y = random.randint(1, 3)
         # self.symma_radiysov = self.a + self.friend.a
-        print("dxgfdgdgfghxdg")
+        # print("dxgfdgdgfghxdg")
 
     def plus_piat(self):
         self.a += 5

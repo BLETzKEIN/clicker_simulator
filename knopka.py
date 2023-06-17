@@ -24,7 +24,7 @@ class Knopka:
             if self.rect.collidepoint(pygame.mouse.get_pos()):
                 self.fon = True
 
-            else:
+
                 self.fon = False
             if i.type == pygame.MOUSEBUTTONDOWN:
                 if self.rect.collidepoint(i.pos):

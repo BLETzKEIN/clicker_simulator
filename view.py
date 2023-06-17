@@ -25,9 +25,9 @@ def cursor_fon():
     for y in model.buttons:
         if y.fon:
             pygame.mouse.set_cursor(c)
-    for y in model.a:
-        if y.fon:
-            pygame.mouse.set_cursor(c)
+    # for y in model.a:
+    #     if y.fon:
+    #         pygame.mouse.set_cursor(c)
 
 
 def vyalia():
@@ -38,11 +38,10 @@ def vyalia():
                                [52, 12, 10])
     display.blit(place, [0, 0])
     cursor_fon()
-    if model.vecherinka == True:
-        for u in model.a:
-            u.draw(display)
+
     model.dss.draw(display, model.show_rects)
     model.dss2.draw(display, model.show_rects)
+    model.pv.view(display)
     # model.dse.draw(display)
     # model.dsf.draw(display)
     # model.dsg.draw(display)
