@@ -8,9 +8,9 @@ import knopka
 
 def events():
     b = event.get()
-    if model.vecherinka:
-        for t in model.a:
-            t.events(b)
+    # if model.vecherinka:
+    #     for t in model.a:
+    #         t.events(b)
     for i in model.buttons:
         i.events(b)
 

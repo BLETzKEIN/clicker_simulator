@@ -28,7 +28,7 @@ rect = pygame.Rect([1400 - 750, 0, 50, 50])
 rect_bomj = pygame.Rect([0, 450, 250, 250])
 show_rects = False
 rect_musicant = pygame.Rect([250, 300, 300, 400])
-vecherinka = False
+
 
 
 import button
@@ -56,22 +56,20 @@ import button
 
 # print("Hello from platok")
 
-def always ():
-    if vecherinka == True:
-        for y in a :
-            y.rost()
+import knopka
 
 #     dsf.rost()
 #     dse.rost()
 #     dsg.rost()
 #     # a[].rost()
-import knopka
 dss = knopka.Knopka([100,100,50,50],'C:/Users/Амир/Desktop/6yqh6b.png')
 dss2 = knopka.Knopka([200,200,100,100],"sprites/controls/plus.png")
-
 buttons = [dss]
-buttons.append(dss2)
 
+buttons.append(dss2)
 import vecherinki
+
 pv = vecherinki.Vecherinka()
 
+def always ():
+    pv.model()
