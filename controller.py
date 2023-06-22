@@ -4,13 +4,12 @@ from pygame import event
 import button
 import model
 import knopka
+import vecherinki
 
 
 def events():
     b = event.get()
-    # if model.vecherinka:
-    #     for t in model.a:
-    #         t.events(b)
+    model.pv.evenets(b)
     for i in model.buttons:
         i.events(b)
 
