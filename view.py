@@ -63,3 +63,4 @@ def tab():
         pygame.draw.rect(display, [3, 30, 127], model.rect, 5)
         pygame.draw.rect(display, [3, 30, 127], model.rect_bomj, 5)
         pygame.draw.rect(display, [3, 30, 127], model.rect_musicant, 5)
+        pygame.draw.rect(display, [3, 30, 127], model.rect_vecherinki1, 5)

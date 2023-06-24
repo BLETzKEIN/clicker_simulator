@@ -6,13 +6,14 @@ import button
 
 
 class Vecherinka:
-    def __init__(self):
+    def __init__(self,rect):
         self.a = []
-        self.dsf = button.Button(20, [55, 97, 148], [700, 350], None, self.a)
+        self.dsf = button.Button(20, [55, 97, 148], [700, 350], None, self.a,rect)
         self.dsf.glavnyi = self.dsf
         self.vecherinka_bydet = True
         self.vidimost = True
-        for o in range(1):
+        self.rect = rect
+        for o in range(100):
             self.a.append(self.create())
         self.a.append(self.dsf)
 
@@ -28,7 +29,7 @@ class Vecherinka:
     def create(self):
         defes = button.Button(random.randint(5, 45),
                               [random.randint(5, 255), random.randint(5, 255), random.randint(5, 255)],
-                              [random.randint(0, 1400), random.randint(0, 700)], self.dsf, self.a)
+                              [random.randint(0, 1400), random.randint(0, 700)], self.dsf, self.a,self.rect)
         return defes
 
     def model(self):
