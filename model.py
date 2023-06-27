@@ -29,6 +29,7 @@ rect_bomj = pygame.Rect([0, 450, 250, 250])
 show_rects = False
 rect_musicant = pygame.Rect([250, 300, 300, 400])
 rect_vecherinki1 = pygame.Rect([200,200,400,400])
+rect_vecherinki2 = pygame.Rect([700,500,400,200])
 
 
 
@@ -70,7 +71,9 @@ buttons = [dss]
 buttons.append(dss2)
 import vecherinki
 
-pv = vecherinki.Vecherinka(rect_vecherinki1)
+pv = vecherinki.Vecherinka(rect_vecherinki1,"kvadrat")
+pd = vecherinki.Vecherinka(rect_vecherinki2,"kryg")
 
 def always ():
     pv.model()
+    pd.model()

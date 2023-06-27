@@ -6,7 +6,7 @@ import pygame
 # otbivka_y = 0
 # otbivka_x = 0
 class Button:
-    def __init__(self, a, color, mesto, glavnyi, friend, rect: pygame.Rect):
+    def __init__(self, a, color, mesto, glavnyi, friend, rect: pygame.Rect,forma):
         self.fon = False
         self.glavnyi = glavnyi
         self.a = a
@@ -19,9 +19,10 @@ class Button:
         self.skorost_x = random.randint(1, 3)
         self.skorost_y = random.randint(1, 3)
         self.rect = rect
-        self.forma = random.choice(["rect","kryg"])
+        self.forma = forma
         # self.symma_radiysov = self.a + self.friend.a
         # print("dxgfdgdgfghxdg")
+
 
     def plus_piat(self):
         self.a += 5
@@ -30,11 +31,20 @@ class Button:
         self.a -= min
 
     def draw(self, surface):
-        if self.fon:
-            pygame.draw.circle(surface, [0, 0, 0], self.mesto, self.a + 3, 3)
+        kvadrat = [self.mesto[0]-self.a,self.mesto[1]-self.a,self.a*2,self.a*2]
+        kvadrat_small = [self.mesto[0]-self.skorost_x,self.mesto[1]-self.skorost_x,self.skorost_x*2,self.skorost_x*2]
+        if self.forma == "kryg":
+            pygame.draw.circle(surface, self.color, self.mesto, self.a)
+            pygame.draw.circle(surface, [0, 0, 0], self.mesto, self.skorost_x)
+            if self.fon:
+                pygame.draw.circle(surface, [0, 0, 0], self.mesto, self.a + 3, 3)
+        else:
+            pygame.draw.rect(surface,self.color,kvadrat)
+            pygame.draw.rect(surface,[0,0,0],kvadrat_small)
 
-        pygame.draw.circle(surface, self.color, self.mesto, self.a)
-        pygame.draw.circle(surface, [1, 1, 1], self.mesto, self.skorost_x)
+
+            if self.fon:
+                pygame.draw.rect(surface,[0,0,0],kvadrat,3)
         # pygame.draw.line(surface, [1, 1, 1], self.mesto, self.glavnyi.mesto)
 
     def kasanie(self):

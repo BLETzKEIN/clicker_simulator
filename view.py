@@ -42,6 +42,7 @@ def vyalia():
     model.dss.draw(display, model.show_rects)
     model.dss2.draw(display, model.show_rects)
     model.pv.view(display)
+    model.pd.view(display)
     # model.dse.draw(display)
     # model.dsf.draw(display)
     # model.dsg.draw(display)
@@ -64,3 +65,4 @@ def tab():
         pygame.draw.rect(display, [3, 30, 127], model.rect_bomj, 5)
         pygame.draw.rect(display, [3, 30, 127], model.rect_musicant, 5)
         pygame.draw.rect(display, [3, 30, 127], model.rect_vecherinki1, 5)
+        pygame.draw.rect(display, [3, 30, 127], model.rect_vecherinki2, 5)

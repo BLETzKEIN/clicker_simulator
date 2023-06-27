@@ -10,6 +10,7 @@ import vecherinki
 def events():
     b = event.get()
     model.pv.evenets(b)
+    model.pd.evenets(b)
     for i in model.buttons:
         i.events(b)
 
