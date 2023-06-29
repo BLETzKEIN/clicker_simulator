@@ -11,8 +11,8 @@ class Vecherinka:
         self.a = []
         self.dsf = button.Button(20, [55, 97, 148], [700, 350], None, self.a,rect,"kryg")
         self.dsf.glavnyi = self.dsf
-        self.vecherinka_bydet = True
-        self.vidimost = True
+        self.vecherinka_bydet = False
+        self.vidimost = False
         self.rect = rect
         for o in range(kolvo):
             self.a.append(self.create())

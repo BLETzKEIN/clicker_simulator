@@ -39,13 +39,11 @@ def vyalia():
     display.blit(place, [0, 0])
     cursor_fon()
 
-    model.dss.draw(display, model.show_rects)
-    model.dss2.draw(display, model.show_rects)
-    model.pv.view(display)
-    model.pd.view(display)
-    # model.dse.draw(display)
-    # model.dsf.draw(display)
-    # model.dsg.draw(display)
+    for g in model.buttons:
+        g.draw(display,model.show_rects)
+    for t in model.bykashki:
+        t.view(display)
+
     level_text = f.render("уровень " + str(model.level_bomj), True, [197, 36, 23], [52, 12, 10])
     display.blit(up, [model.rect.left, model.rect.top])
     display.blit(bomj, model.rect_bomj.topleft)

@@ -2,7 +2,8 @@ import pygame
 
 
 class Knopka:
-    def __init__(self, rect, kartinka):
+    def __init__(self, rect, kartinka,deistvie):
+        self.deistvie = deistvie
         self.fon = False
         self.rect = pygame.Rect(rect)
         self.kartinka = kartinka
@@ -21,11 +22,11 @@ class Knopka:
 
     def events(self, b):
         for i in b:
-            if self.rect.collidepoint(pygame.mouse.get_pos()):
-                self.fon = True
+            # if self.rect.collidepoint(pygame.mouse.get_pos()):
+            #     self.fon = True
 
 
-                self.fon = False
+                # self.fon = False
             if i.type == pygame.MOUSEBUTTONDOWN:
                 if self.rect.collidepoint(i.pos):
-                    print(self.rect)
+                    self.deistvie()
