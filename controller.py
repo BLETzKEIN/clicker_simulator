@@ -18,9 +18,7 @@ def events():
         if s.type == pygame.QUIT:
             exit(666)
         if s.type == pygame.MOUSEBUTTONDOWN:
-            if model.rect.collidepoint(s.pos):
-                model.upgrade()
-            elif s.button in [pygame.BUTTON_LEFT, pygame.BUTTON_RIGHT]:
+            if s.button in [pygame.BUTTON_LEFT, pygame.BUTTON_RIGHT]:
                 model.click()
                 # print(model.moneys)
             else:
