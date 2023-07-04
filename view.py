@@ -2,9 +2,10 @@ import model
 import pygame
 from pygame import image, display as display_mod
 import knopka
+import nadpisi
 
 pygame.init()
-f = pygame.font.SysFont("arial", 30, True, False)
+
 
 display = display_mod.set_mode([1400, 700])
 plac = image.load("sprites/place/place1.jpg")
@@ -15,10 +16,13 @@ bom = image.load("sprites/worker/worker1.png")
 bomj = pygame.transform.scale(bom, model.rect_bomj.size)
 musican = image.load("sprites/worker/worker2_inv.png")
 musicant = pygame.transform.scale(musican, model.rect_musicant.size)
+orig_musican = image.load("sprites/worker/worker2.png")
+orig_musicant = pygame.transform.scale(orig_musican, model.rect_musicant.size)
 
 c = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_HAND)
 d = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_ARROW)
 
+f = pygame.font.SysFont("arial", 30, True, False)
 
 def cursor_fon():
     pygame.mouse.set_cursor(d)
@@ -54,7 +58,11 @@ def vyalia():
     display.blit(ypgreid, [model.rect_button_yellow2.left, model.rect_button_yellow2.bottom])
     display.blit(ypgreid_prirost, [model.rect_button_yellow2.left, model.rect_button_yellow2.bottom + 30])
     display.blit(level_text, [model.rect_bomj.left + 30, model.rect_bomj.top - 30])
-    display.blit(musicant, model.rect_musicant)
+    model.nadpis1.view(display)
+    if model.level_musicant < 1:
+        display.blit(musicant, model.rect_musicant)
+    else:
+        display.blit(orig_musicant, model.rect_musicant)
     tab()
     display_mod.flip()
 

@@ -1,7 +1,7 @@
 import random
 import knopka
 import vecherinki
-
+import nadpisi
 import pygame
 pygame.mixer.init()
 
@@ -21,13 +21,15 @@ def upgrade():
         level_bomj += 1
 
 def musicant_buy():
-    global moneys,upgrade_musicant_cena,level_musicant
+    global moneys,upgrade_musicant_cena,level_musicant,moneys_per_second
     if moneys < upgrade_musicant_cena:
         zvyk.play()
     else:
         moneys -= upgrade_musicant_cena
         upgrade_musicant_cena *=1.02
         level_musicant += 1
+        moneys_per_second +=5
+        nadpis1.set_chislo(moneys_per_second)
 
 
 def always ():
@@ -46,6 +48,7 @@ moneys = 0
 upgrade_musicant_cena = 10000
 upgrade_cena = 10
 za_click_upgrade = 2
+moneys_per_second = 0
 # rect = pygame.Rect([1400 - 750, 0, 50, 50])
 zvyk = pygame.mixer.Sound("zvyki/puk.mp3")
 level_musicant = 0
@@ -56,6 +59,7 @@ rect_musicant = pygame.Rect([250, 300, 300, 400])
 rect_button_green = pygame.Rect ([rect_musicant.right,rect_musicant.top+100,50,50])
 rect_vecherinki1 = pygame.Rect([200,200,400,400])
 rect_vecherinki2 = pygame.Rect([700,500,400,200])
+nadpis1 = nadpisi.Nadpis(rect_musicant.right,rect_musicant.bottom-30)
 buttons = []
 bykashki = []
 
