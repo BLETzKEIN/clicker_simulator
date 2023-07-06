@@ -19,6 +19,9 @@ def upgrade():
         za_click += za_click_upgrade
         za_click_upgrade += 2
         level_bomj += 1
+        nadpis2.set_chislo(za_click)
+    else:
+        zvyk.play()
 
 def musicant_buy():
     global moneys,upgrade_musicant_cena,level_musicant,moneys_per_second
@@ -59,7 +62,9 @@ rect_musicant = pygame.Rect([250, 300, 300, 400])
 rect_button_green = pygame.Rect ([rect_musicant.right,rect_musicant.top+100,50,50])
 rect_vecherinki1 = pygame.Rect([200,200,400,400])
 rect_vecherinki2 = pygame.Rect([700,500,400,200])
-nadpis1 = nadpisi.Nadpis(rect_musicant.right,rect_musicant.bottom-30)
+nadpis1 = nadpisi.Nadpis(rect_musicant.right,rect_musicant.bottom-30,strochka2=" монет в секунду",chislo=moneys_per_second)
+nadpis2 = nadpisi.Nadpis(0,30,strochka2=" монет за клик",chislo=za_click)
+# nadpis3 = nadpisi.Nadpis(" ")
 buttons = []
 bykashki = []
 

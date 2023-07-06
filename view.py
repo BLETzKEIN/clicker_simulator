@@ -52,7 +52,7 @@ def vyalia():
     level_musicant_text = f.render("уровень " + str(model.level_musicant), True, [197, 36, 23], [52, 12, 10])
     # display.blit(up, [model.rect.left, model.rect.top])
     display.blit(bomj, model.rect_bomj.topleft)
-    display.blit(money_za_click, [0, 30])
+    model.nadpis2.view(display)
     display.blit(moneyts, [0, 0])
     display.blit(level_musicant_text,[model.rect_musicant.left +30,model.rect_musicant.top-30])
     display.blit(ypgreid, [model.rect_button_yellow2.left, model.rect_button_yellow2.bottom])
