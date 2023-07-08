@@ -57,7 +57,7 @@ def vyalia():
     display.blit(level_musicant_text,[model.rect_musicant.left +30,model.rect_musicant.top-30])
     display.blit(ypgreid, [model.rect_button_yellow2.left, model.rect_button_yellow2.bottom])
     display.blit(ypgreid_prirost, [model.rect_button_yellow2.left, model.rect_button_yellow2.bottom + 30])
-    display.blit(level_text, [model.rect_bomj.left + 30, model.rect_bomj.top - 30])
+    model.nadpis3.view(display)
     model.nadpis1.view(display)
     if model.level_musicant < 1:
         display.blit(musicant, model.rect_musicant)
@@ -65,11 +65,12 @@ def vyalia():
         display.blit(orig_musicant, model.rect_musicant)
     tab()
     display_mod.flip()
+    print(model.buttons[0].obvodka)
 
 
 def tab():
     if model.show_rects == True:
-        pygame.draw.rect(display, [3, 30, 127], model.rect, 5)
+        # pygame.draw.rect(display, [3, 30, 127], model.rect_, 5)
         pygame.draw.rect(display, [3, 30, 127], model.rect_bomj, 5)
         pygame.draw.rect(display, [3, 30, 127], model.rect_musicant, 5)
         pygame.draw.rect(display, [3, 30, 127], model.rect_vecherinki1, 5)

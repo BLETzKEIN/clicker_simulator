@@ -3,6 +3,7 @@ import pygame
 
 class Knopka:
     def __init__(self, rect, kartinka,deistvie):
+        self.clr = [255,0,1]
         self.deistvie = deistvie
         self.fon = False
         self.rect = pygame.Rect(rect)
@@ -18,7 +19,16 @@ class Knopka:
 
         surface.blit(self.kartinka_re, self.rect)
         if show:
-            pygame.draw.rect(surface, [3, 30, 127], self.rect, 5)
+            pygame.draw.rect(surface, self.clr, self.rect, 5)
+
+    @property
+    def obvodka(self):
+        if self.clr == [255,0,0]:
+            return "red"
+        else:
+            return "platok"
+
+
 
     def events(self, b):
         for i in b:

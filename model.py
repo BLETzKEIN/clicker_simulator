@@ -9,7 +9,7 @@ pygame.mixer.init()
 def click():
     global moneys
     moneys += za_click
-
+    nadpis4.chislo = moneys
 
 def upgrade():
     global moneys, za_click, za_click_upgrade, upgrade_cena, level_bomj
@@ -19,7 +19,9 @@ def upgrade():
         za_click += za_click_upgrade
         za_click_upgrade += 2
         level_bomj += 1
-        nadpis2.set_chislo(za_click)
+        nadpis2.chislo = za_click
+        nadpis3.chislo = level_bomj
+        nadpis4.chislo = moneys
     else:
         zvyk.play()
 
@@ -32,7 +34,7 @@ def musicant_buy():
         upgrade_musicant_cena *=1.02
         level_musicant += 1
         moneys_per_second +=5
-        nadpis1.set_chislo(moneys_per_second)
+        nadpis1.chislo = moneys_per_second
 
 
 def always ():
@@ -64,6 +66,8 @@ rect_vecherinki1 = pygame.Rect([200,200,400,400])
 rect_vecherinki2 = pygame.Rect([700,500,400,200])
 nadpis1 = nadpisi.Nadpis(rect_musicant.right,rect_musicant.bottom-30,strochka2=" монет в секунду",chislo=moneys_per_second)
 nadpis2 = nadpisi.Nadpis(0,30,strochka2=" монет за клик",chislo=za_click)
+nadpis3 = nadpisi.Nadpis(rect_bomj.left + 30, rect_bomj.top - 30,"уровень ",)
+nadpis4 = nadpisi.Nadpis(0,0,strochka2=" монет")
 # nadpis3 = nadpisi.Nadpis(" ")
 buttons = []
 bykashki = []
