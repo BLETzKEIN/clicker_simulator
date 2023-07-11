@@ -53,7 +53,7 @@ def vyalia():
     # display.blit(up, [model.rect.left, model.rect.top])
     display.blit(bomj, model.rect_bomj.topleft)
     model.nadpis2.view(display)
-    display.blit(moneyts, [0, 0])
+    model.nadpis4.view(display)
     display.blit(level_musicant_text,[model.rect_musicant.left +30,model.rect_musicant.top-30])
     display.blit(ypgreid, [model.rect_button_yellow2.left, model.rect_button_yellow2.bottom])
     display.blit(ypgreid_prirost, [model.rect_button_yellow2.left, model.rect_button_yellow2.bottom + 30])

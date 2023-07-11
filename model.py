@@ -42,6 +42,7 @@ def always ():
         h.model()
 def knopka_create (rect,kartinka,deistvie):
     dss = knopka.Knopka(rect, kartinka, deistvie)
+    dss.obvodka = "green"
     buttons.append(dss)
 def vechirinka_create (rect,kryg_or_kvadrat):
     d = vecherinki.Vecherinka(rect,kryg_or_kvadrat)
@@ -68,10 +69,9 @@ nadpis1 = nadpisi.Nadpis(rect_musicant.right,rect_musicant.bottom-30,strochka2="
 nadpis2 = nadpisi.Nadpis(0,30,strochka2=" монет за клик",chislo=za_click)
 nadpis3 = nadpisi.Nadpis(rect_bomj.left + 30, rect_bomj.top - 30,"уровень ",)
 nadpis4 = nadpisi.Nadpis(0,0,strochka2=" монет")
-# nadpis3 = nadpisi.Nadpis(" ")
+nadpis5 = nadpisi.Nadpis(rect_musicant.left +30,rect_musicant.top-30,"уровень ")
 buttons = []
 bykashki = []
-
 
 
 

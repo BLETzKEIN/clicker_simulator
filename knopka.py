@@ -3,7 +3,7 @@ import pygame
 
 class Knopka:
     def __init__(self, rect, kartinka,deistvie):
-        self.clr = [255,0,1]
+        self.clr = [255,0,0]
         self.deistvie = deistvie
         self.fon = False
         self.rect = pygame.Rect(rect)
@@ -25,8 +25,18 @@ class Knopka:
     def obvodka(self):
         if self.clr == [255,0,0]:
             return "red"
-        else:
-            return "platok"
+        if self.clr == [0,255,0]:
+            return "green"
+        if self.clr == [255,255,255]:
+            return "white"
+    @obvodka.setter
+    def obvodka(self,noviy_cvet):
+        if noviy_cvet == "green":
+            self.clr = [0,255,0]
+        if noviy_cvet == "red":
+            self.clr = [255,0,0]
+        if noviy_cvet == "white":
+            self.clr = [255,255,255]
 
 
 

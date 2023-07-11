@@ -11,7 +11,7 @@ class Nadpis:
         self.x = x
         self.y = y
         self._chislo = chislo
-        self.g = f.render(self.strochka + str(self._chislo) + self.strochka2, True, [197, 36, 23], [52, 12, 10])
+        self.g = f.render(self.strochka + str(int(self._chislo)) + self.strochka2, True, [197, 36, 23], [52, 12, 10])
 
     def view(self, display: pygame.Surface):
         display.blit(self.g, [self.x, self.y])
@@ -24,7 +24,7 @@ class Nadpis:
     def chislo(self, novoe_chislo):
         if novoe_chislo != self._chislo:
             self._chislo = novoe_chislo
-            self.g = f.render(self.strochka + str(self._chislo) + self.strochka2, True, [197, 36, 23], [52, 12, 10])
+            self.g = f.render(self.strochka + str(int(self._chislo)) + self.strochka2, True, [197, 36, 23], [52, 12, 10])
 
 
 
