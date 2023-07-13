@@ -35,11 +35,6 @@ def cursor_fon():
 
 
 def vyalia():
-    moneyts = f.render(str(int(model.moneys)) + " монет", True, [197, 36, 23], [52, 12, 10])
-    money_za_click = f.render("за клик " + str(model.za_click) + " монет", True, [197, 36, 23], [52, 12, 10])
-    ypgreid = f.render("апгреид стоит " + str(int(model.upgrade_cena)) + " монет", True, [197, 36, 23], [52, 12, 10])
-    ypgreid_prirost = f.render("за апгреид будет +" + str(model.za_click_upgrade) + " за клик", True, [197, 36, 23],
-                               [52, 12, 10])
     display.blit(place, [0, 0])
     cursor_fon()
 
@@ -47,25 +42,17 @@ def vyalia():
         g.draw(display,model.show_rects)
     for t in model.bykashki:
         t.view(display)
+    for v in model.napeshi:
+        v.view(display)
 
-    level_text = f.render("уровень " + str(model.level_bomj), True, [197, 36, 23], [52, 12, 10])
-    level_musicant_text = f.render("уровень " + str(model.level_musicant), True, [197, 36, 23], [52, 12, 10])
-    # display.blit(up, [model.rect.left, model.rect.top])
     display.blit(bomj, model.rect_bomj.topleft)
-    model.nadpis2.view(display)
-    model.nadpis4.view(display)
-    display.blit(level_musicant_text,[model.rect_musicant.left +30,model.rect_musicant.top-30])
-    display.blit(ypgreid, [model.rect_button_yellow2.left, model.rect_button_yellow2.bottom])
-    display.blit(ypgreid_prirost, [model.rect_button_yellow2.left, model.rect_button_yellow2.bottom + 30])
-    model.nadpis3.view(display)
-    model.nadpis1.view(display)
     if model.level_musicant < 1:
         display.blit(musicant, model.rect_musicant)
     else:
         display.blit(orig_musicant, model.rect_musicant)
+
     tab()
     display_mod.flip()
-    print(model.buttons[0].obvodka)
 
 
 def tab():
