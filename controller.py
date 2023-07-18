@@ -5,7 +5,8 @@ import button
 import model
 import knopka
 import vecherinki
-
+dfs = pygame.event.custom_type()
+pygame.time.set_timer(dfs,1000)
 
 def events():
     b = event.get()
@@ -15,6 +16,8 @@ def events():
         i.events(b)
 
     for s in b:
+        if s.type == dfs:
+            model.money_plus()
         if s.type == pygame.QUIT:
             exit(666)
         if s.type == pygame.MOUSEBUTTONDOWN:

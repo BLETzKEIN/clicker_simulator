@@ -6,6 +6,10 @@ import pygame
 
 pygame.mixer.init()
 
+def money_plus():
+    global moneys, moneys_per_second
+    moneys += moneys_per_second
+    nadpis4.chislo = moneys
 
 def click():
     global moneys
@@ -31,16 +35,23 @@ def upgrade():
 
 
 def musicant_buy():
-    global moneys, upgrade_musicant_cena, level_musicant, moneys_per_second
+    global moneys, upgrade_musicant_cena, level_musicant, moneys_per_second,upgrade_musicant_cena_rost,za_click
     if moneys < upgrade_musicant_cena:
         zvyk.play()
     else:
         moneys -= upgrade_musicant_cena
-        upgrade_musicant_cena *= 1.02
+        upgrade_musicant_cena *= upgrade_musicant_cena_rost
+        upgrade_musicant_cena_rost += 0.02283
         level_musicant += 1
         moneys_per_second += 5
+        if level_musicant == 20:
+            za_click *= 1.3
         nadpis1.chislo = moneys_per_second
         nadpis5.chislo = level_musicant
+        nadpis8.chislo = upgrade_musicant_cena
+        nadpis2.chislo = za_click
+        nadpis4.chislo = moneys
+
 
 
 def always():
@@ -69,6 +80,7 @@ level_bomj = 0
 za_click = 2
 moneys = 0
 upgrade_musicant_cena = 10000
+upgrade_musicant_cena_rost = 1.02
 upgrade_cena = 10
 za_click_upgrade = 2
 moneys_per_second = 0
@@ -92,9 +104,9 @@ nadpis5 = napeshi_uppand(rect_musicant.left + 30, rect_musicant.top - 30, "ур�
 nadpis6 = napeshi_uppand(rect_button_yellow2.left, rect_button_yellow2.bottom, "апгреид стоит ", " монет", upgrade_cena)
 buttons = []
 bykashki = []
-
 nadpis7 = napeshi_uppand(rect_button_yellow2.left, rect_button_yellow2.bottom + 30, "за апгреид будет +", " за клик",
                za_click_upgrade)
+nadpis8 = napeshi_uppand(rect_musicant.right,rect_musicant.top + 150,"апгреид стоит "," монет",upgrade_musicant_cena)
 knopka_create(rect_button_yellow2, "sprites/controls/up_yellow.png", upgrade)
 knopka_create(rect_button_green, "sprites/controls/up_green.png", musicant_buy)
 
