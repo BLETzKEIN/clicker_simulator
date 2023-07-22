@@ -18,6 +18,8 @@ musican = image.load("sprites/worker/worker2_inv.png")
 musicant = pygame.transform.scale(musican, model.rect_musicant.size)
 orig_musican = image.load("sprites/worker/worker2.png")
 orig_musicant = pygame.transform.scale(orig_musican, model.rect_musicant.size)
+worke3 = image.load("sprites/worker/worker3_inv.png")
+worker3
 
 c = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_HAND)
 d = pygame.cursors.Cursor(pygame.SYSTEM_CURSOR_ARROW)
@@ -46,7 +48,7 @@ def vyalia():
         v.view(display)
 
     display.blit(bomj, model.rect_bomj.topleft)
-    if model.level_musicant < 1:
+    if model.level_musicant.chislo < 1:
         display.blit(musicant, model.rect_musicant)
     else:
         display.blit(orig_musicant, model.rect_musicant)
