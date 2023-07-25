@@ -3,6 +3,7 @@ import knopka
 import vecherinki
 import nadpisi
 import pygame
+import workeri
 
 pygame.mixer.init()
 
@@ -75,6 +76,7 @@ rect_musicant = pygame.Rect([250, 300, 300, 400])
 rect_button_green = pygame.Rect([rect_musicant.right, rect_musicant.top + 100, 50, 50])
 rect_vecherinki1 = pygame.Rect([200, 200, 400, 400])
 rect_vecherinki2 = pygame.Rect([700, 500, 400, 200])
+workyr3_rect = pygame.Rect([950,300,200,400])
 napeshi = []
 moneys_per_second = napeshi_uppand(rect_musicant.right, rect_musicant.bottom - 30, strochka2=" монет в секунду",
                         chislo= 0)
@@ -93,3 +95,6 @@ knopka_create(rect_button_yellow2, "sprites/controls/up_yellow.png", upgrade)
 knopka_create(rect_button_green, "sprites/controls/up_green.png", musicant_buy)
 
 vechirinka_create(rect_vecherinki1, "kvadrat")
+
+
+workyr3 = workeri.Workyr("sprites/worker/worker3.png",workyr3_rect)
