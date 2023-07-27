@@ -1,17 +1,18 @@
 import pygame
 
 pygame.init()
-f = pygame.font.SysFont("arial", 30, True, False)
+
 
 
 class Nadpis:
-    def __init__(self, x, y, strochka="", strochka2="", chislo=0):
+    def __init__(self, x, y, strochka="", strochka2="", chislo=0, shrift = 30):
+        self.f = pygame.font.SysFont("arial", shrift, True, False)
         self.strochka = strochka
         self.strochka2 = strochka2
         self.x = x
         self.y = y
         self._chislo = chislo
-        self.g = f.render(self.strochka + str(int(self._chislo)) + self.strochka2, True, [197, 36, 23], [52, 12, 10])
+        self.g = self.f.render(self.strochka + str(int(self._chislo)) + self.strochka2, True, [197, 36, 23], [52, 12, 10])
 
     def view(self, display: pygame.Surface):
         display.blit(self.g, [self.x, self.y])
@@ -24,7 +25,7 @@ class Nadpis:
     def chislo(self, novoe_chislo):
         if novoe_chislo != self._chislo:
             self._chislo = novoe_chislo
-            self.g = f.render(self.strochka + str(int(self._chislo)) + self.strochka2, True, [197, 36, 23], [52, 12, 10])
+            self.g = self.f.render(self.strochka + str(int(self._chislo)) + self.strochka2, True, [197, 36, 23], [52, 12, 10])
 
 
 

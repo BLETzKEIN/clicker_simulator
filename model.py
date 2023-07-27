@@ -10,6 +10,9 @@ pygame.mixer.init()
 def money_plus():
     moneys.chislo += moneys_per_second.chislo
 
+def prent():
+    print("kakashka")
+
 def click():
     moneys.chislo += za_click_ysilenniy.chislo
 
@@ -39,6 +42,8 @@ def musicant_buy():
         upgrade_musicant_cena_rost += 0.02283
         level_musicant.chislo += 1
         moneys_per_second.chislo += 5
+        if level_musicant.chislo == 10:
+            workyr3.show()
         if level_musicant.chislo == 20:
             za_click_ysilenniy.chislo *= 1.3
 
@@ -60,8 +65,8 @@ def vechirinka_create(rect, kryg_or_kvadrat):
     bykashki.append(d)
 
 
-def napeshi_uppand(x, y, strochka1 = "", strochka2 ="", chislo = 0):
-    pon = nadpisi.Nadpis(x, y, strochka1, strochka2, chislo)
+def napeshi_uppand(x, y, strochka1 = "", strochka2 ="", chislo = 0, shrift = 30):
+    pon = nadpisi.Nadpis(x, y, strochka1, strochka2, chislo, shrift)
     napeshi.append(pon)
     return pon
 
@@ -73,12 +78,13 @@ rect_button_yellow2 = pygame.Rect([1400 - 750, 0, 50, 50])
 rect_bomj = pygame.Rect([0, 450, 250, 250])
 show_rects = False
 rect_musicant = pygame.Rect([250, 300, 300, 400])
-rect_button_green = pygame.Rect([rect_musicant.right, rect_musicant.top + 100, 50, 50])
+workyr3_rect = pygame.Rect([650,300,200,400])
+rect_button_green = pygame.Rect([rect_musicant.right-40, rect_musicant.top + 160, 40, 40])
+rect_button_green2 = pygame.Rect([workyr3_rect.right-50,workyr3_rect.top,50,50])
 rect_vecherinki1 = pygame.Rect([200, 200, 400, 400])
 rect_vecherinki2 = pygame.Rect([700, 500, 400, 200])
-workyr3_rect = pygame.Rect([950,300,200,400])
 napeshi = []
-moneys_per_second = napeshi_uppand(rect_musicant.right, rect_musicant.bottom - 30, strochka2=" монет в секунду",
+moneys_per_second = napeshi_uppand(0, 90, strochka2=" монет в секунду",
                         chislo= 0)
 za_click = napeshi_uppand(0, 30, strochka2=" монет за клик", chislo=2)
 level_bomj = napeshi_uppand(rect_bomj.left + 30, rect_bomj.top - 30, "уровень ", )
@@ -89,12 +95,13 @@ buttons = []
 bykashki = []
 za_click_upgrade = napeshi_uppand(rect_button_yellow2.left, rect_button_yellow2.bottom + 30, "за апгреид будет +", " за клик",
                2)
-upgrade_musicant_cena = napeshi_uppand(rect_musicant.right,rect_musicant.top + 150,"апгреид стоит "," монет",10000)
+upgrade_musicant_cena = napeshi_uppand(rect_musicant.right-160,rect_musicant.top + 200,"апгреид стоит "," монет",10000,20)
 za_click_ysilenniy = napeshi_uppand(0,60,"реально "," монет за клик",2)
 knopka_create(rect_button_yellow2, "sprites/controls/up_yellow.png", upgrade)
 knopka_create(rect_button_green, "sprites/controls/up_green.png", musicant_buy)
+knopka_create(rect_button_green2,"sprites/controls/up_green.png",prent)
 
 vechirinka_create(rect_vecherinki1, "kvadrat")
 
 
-workyr3 = workeri.Workyr("sprites/worker/worker3.png",workyr3_rect)
+workyr3 = workeri.Workyr("sprites/worker/worker3_inv.png",workyr3_rect)
