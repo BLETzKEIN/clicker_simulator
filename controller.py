@@ -14,6 +14,8 @@ def events():
         t.evenets(b)
     for i in model.buttons:
         i.events(b)
+    for h in model.workers:
+        h.events(b)
 
     for s in b:
         if s.type == dfs:

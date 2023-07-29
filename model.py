@@ -88,20 +88,22 @@ moneys_per_second = napeshi_uppand(0, 90, strochka2=" монет в секунд
                         chislo= 0)
 za_click = napeshi_uppand(0, 30, strochka2=" монет за клик", chislo=2)
 level_bomj = napeshi_uppand(rect_bomj.left + 30, rect_bomj.top - 30, "уровень ", )
-moneys = napeshi_uppand(0, 0, strochka2=" монет")
+moneys = napeshi_uppand(0, 0, strochka2=" монет",chislo=10000000000)
 level_musicant = napeshi_uppand(rect_musicant.left + 30, rect_musicant.top - 30, "уровень ")
 upgrade_cena = napeshi_uppand(rect_button_yellow2.left, rect_button_yellow2.bottom, "апгреид стоит ", " монет", 10)
 buttons = []
 bykashki = []
+workers = []
 za_click_upgrade = napeshi_uppand(rect_button_yellow2.left, rect_button_yellow2.bottom + 30, "за апгреид будет +", " за клик",
                2)
 upgrade_musicant_cena = napeshi_uppand(rect_musicant.right-160,rect_musicant.top + 200,"апгреид стоит "," монет",10000,20)
 za_click_ysilenniy = napeshi_uppand(0,60,"реально "," монет за клик",2)
 knopka_create(rect_button_yellow2, "sprites/controls/up_yellow.png", upgrade)
 knopka_create(rect_button_green, "sprites/controls/up_green.png", musicant_buy)
-knopka_create(rect_button_green2,"sprites/controls/up_green.png",prent)
 
 vechirinka_create(rect_vecherinki1, "kvadrat")
 
 
-workyr3 = workeri.Workyr("sprites/worker/worker3_inv.png",workyr3_rect)
+
+workyr3 = workeri.Workyr("sprites/worker/worker3_inv.png",workyr3_rect,)
+workers.append(workyr3)

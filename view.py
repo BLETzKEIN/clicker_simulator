@@ -42,8 +42,10 @@ def vyalia():
 
     for g in model.buttons:
         g.draw(display,model.show_rects)
+
     for t in model.bykashki:
         t.view(display)
+
     for v in model.napeshi:
         v.view(display)
 
