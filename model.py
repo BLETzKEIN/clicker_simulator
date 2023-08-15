@@ -88,7 +88,7 @@ moneys_per_second = napeshi_uppand(0, 90, strochka2=" монет в секунд
                         chislo= 0)
 za_click = napeshi_uppand(0, 30, strochka2=" монет за клик", chislo=2)
 level_bomj = napeshi_uppand(rect_bomj.left + 30, rect_bomj.top - 30, "уровень ", )
-moneys = napeshi_uppand(0, 0, strochka2=" монет",chislo=10000000000)
+moneys = napeshi_uppand(0, 0, strochka2=" монет",chislo=10000000)
 level_musicant = napeshi_uppand(rect_musicant.left + 30, rect_musicant.top - 30, "уровень ")
 upgrade_cena = napeshi_uppand(rect_button_yellow2.left, rect_button_yellow2.bottom, "апгреид стоит ", " монет", 10)
 buttons = []
@@ -105,5 +105,5 @@ vechirinka_create(rect_vecherinki1, "kvadrat")
 
 
 
-workyr3 = workeri.Workyr("sprites/worker/worker3_inv.png",workyr3_rect,)
+workyr3 = workeri.Workyr("sprites/worker/worker3_inv.png",workyr3_rect,moneys)
 workers.append(workyr3)
