@@ -105,5 +105,5 @@ vechirinka_create(rect_vecherinki1, "kvadrat")
 
 
 
-workyr3 = workeri.Workyr("sprites/worker/worker3_inv.png",workyr3_rect,moneys)
+workyr3 = workeri.Workyr("sprites/worker/worker3_inv.png","sprites/worker/worker3.png",workyr3_rect,moneys,moneys_per_second)
 workers.append(workyr3)
