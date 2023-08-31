@@ -51,6 +51,7 @@ def vyalia():
 
     display.blit(bomj, model.rect_bomj.topleft)
     model.workyr3.blit(display)
+    model.workyr2.blit(display)
     if model.level_musicant.chislo < 1:
         display.blit(musicant, model.rect_musicant)
     else:

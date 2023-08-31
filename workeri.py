@@ -6,7 +6,10 @@ import nadpisi
 
 
 class Workyr:
-    def __init__(self, worker,worker2, rect: pygame.Rect, money:nadpisi.Nadpis,moneys_per_second:nadpisi.Nadpis, visible=False ):
+    def __init__(self,cena_upgreid,chislo,rost_pribavki, worker,worker2, rect: pygame.Rect, money:nadpisi.Nadpis,moneys_per_second:nadpisi.Nadpis, visible=False ):
+        self.rost_pribavki = rost_pribavki
+        self.drygoe_chislo = chislo
+        self.cena_upgreid = cena_upgreid
         self.money = money
         self.moneys_per_second = moneys_per_second
         self.visible = visible
@@ -23,16 +26,18 @@ class Workyr:
 
         self.level = nadpisi.Nadpis(self.rect.left,self.rect.top - 30,"уровень ")
 
-        self.cena = nadpisi.Nadpis(self.rect.right-60,self.rect.y + 60,"апгреид стоит "," монет",1000000,20)
+        self.cena = nadpisi.Nadpis(self.rect.right-60,self.rect.y + 60,"апгреид стоит "," монет",self.cena_upgreid,20)
 
-        self.moneys_per_second_plus = nadpisi.Nadpis(self.rect.x,self.rect.bottom-30,strochka="+",strochka2=" монет в секунду",chislo=10)
+        self.moneys_per_second_plus = nadpisi.Nadpis(self.rect.x,self.rect.bottom-30,strochka="+",strochka2=" монет в секунду",chislo=self.drygoe_chislo)
 
     def prent(self):
         if self.money.chislo >= self.cena.chislo:
             self.money.chislo -= self.cena.chislo
+            self.cena.chislo *= 1.02
             self.level.chislo += 1
             self.moneys_per_second.chislo += self.moneys_per_second_plus.chislo
-            self.moneys_per_second_plus.chislo += 10
+            self.moneys_per_second_plus.chislo += self.rost_pribavki
+            self.rost_pribavki += self.drygoe_chislo
 
 
     def show(self):

@@ -78,6 +78,7 @@ rect_button_yellow2 = pygame.Rect([1400 - 750, 0, 50, 50])
 rect_bomj = pygame.Rect([0, 450, 250, 250])
 show_rects = False
 rect_musicant = pygame.Rect([250, 300, 300, 400])
+rect_musicant_copy = pygame.Rect([600,300,300,400])
 workyr3_rect = pygame.Rect([650,300,200,400])
 rect_button_green = pygame.Rect([rect_musicant.right-40, rect_musicant.top + 160, 40, 40])
 rect_button_green2 = pygame.Rect([workyr3_rect.right-50,workyr3_rect.top,50,50])
@@ -105,5 +106,6 @@ vechirinka_create(rect_vecherinki1, "kvadrat")
 
 
 
-workyr3 = workeri.Workyr("sprites/worker/worker3_inv.png","sprites/worker/worker3.png",workyr3_rect,moneys,moneys_per_second)
+workyr3 = workeri.Workyr(100000,10,10,"sprites/worker/worker3_inv.png","sprites/worker/worker3.png",workyr3_rect,moneys,moneys_per_second)
+workyr2 = workeri.Workyr(10000,2,2,"sprites/worker/worker2_inv.png","sprites/worker/worker2.png",rect_musicant_copy,moneys,moneys_per_second,True)
 workers.append(workyr3)
