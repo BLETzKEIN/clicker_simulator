@@ -4,9 +4,13 @@ from pygame import image
 import knopka
 import nadpisi
 
+pygame.mixer.init()
+zvek = pygame.mixer.Sound("zvyki/puk.mp3")
 
 class Workyr:
-    def __init__(self,cena_upgreid,chislo,rost_pribavki, worker,worker2, rect: pygame.Rect, money:nadpisi.Nadpis,moneys_per_second:nadpisi.Nadpis, visible=False ):
+    def __init__(self,rect_button,cena_upgreid,chislo,rost_pribavki, worker,worker2, rect: pygame.Rect, money:nadpisi.Nadpis,moneys_per_second:nadpisi.Nadpis,x = None,y = None, visible=False ):
+        self.x = x
+        self.y = y
         self.rost_pribavki = rost_pribavki
         self.drygoe_chislo = chislo
         self.cena_upgreid = cena_upgreid
@@ -21,12 +25,16 @@ class Workyr:
         self.workir = pygame.transform.scale(wor, self.rect.size)
         self.workir2 = pygame.transform.scale(wor2, self.rect.size)
 
-        self.rect_button_green2 = pygame.Rect([self.rect.right - 50, self.rect.top, 50, 50])
+        self.rect_button_green2 = rect_button
         self.button = knopka.Knopka(self.rect_button_green2, "sprites/controls/up_green.png", self.prent)
+        if self.x is None:
+            self.x = 0
+        if self.y is None:
+            self.y = 0
 
         self.level = nadpisi.Nadpis(self.rect.left,self.rect.top - 30,"уровень ")
 
-        self.cena = nadpisi.Nadpis(self.rect.right-60,self.rect.y + 60,"апгреид стоит "," монет",self.cena_upgreid,20)
+        self.cena = nadpisi.Nadpis(self.x,self.y ,"апгреид стоит "," монет",self.cena_upgreid,20)
 
         self.moneys_per_second_plus = nadpisi.Nadpis(self.rect.x,self.rect.bottom-30,strochka="+",strochka2=" монет в секунду",chislo=self.drygoe_chislo)
 
@@ -38,6 +46,9 @@ class Workyr:
             self.moneys_per_second.chislo += self.moneys_per_second_plus.chislo
             self.moneys_per_second_plus.chislo += self.rost_pribavki
             self.rost_pribavki += self.drygoe_chislo
+        else:
+            zvek.play()
+
 
 
     def show(self):
@@ -48,6 +59,7 @@ class Workyr:
             return
         a = self.workir if self.level.chislo <= 0 else self.workir2
         display.blit(a,[self.rect.x, self.rect.y])
+        print(self.button.rect)
         self.button.draw(display, True)
         self.level.view(display)
         self.cena.view(display)

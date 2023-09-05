@@ -81,6 +81,7 @@ rect_musicant = pygame.Rect([250, 300, 300, 400])
 rect_musicant_copy = pygame.Rect([600,300,300,400])
 workyr3_rect = pygame.Rect([650,300,200,400])
 rect_button_green = pygame.Rect([rect_musicant.right-40, rect_musicant.top + 160, 40, 40])
+rect_button_green = pygame.Rect([500, 500, 40, 40])
 rect_button_green2 = pygame.Rect([workyr3_rect.right-50,workyr3_rect.top,50,50])
 rect_vecherinki1 = pygame.Rect([200, 200, 400, 400])
 rect_vecherinki2 = pygame.Rect([700, 500, 400, 200])
@@ -97,16 +98,15 @@ bykashki = []
 workers = []
 za_click_upgrade = napeshi_uppand(rect_button_yellow2.left, rect_button_yellow2.bottom + 30, "за апгреид будет +", " за клик",
                2)
-upgrade_musicant_cena = napeshi_uppand(rect_musicant.right-160,rect_musicant.top + 200,"апгреид стоит "," монет",10000,20)
+
 za_click_ysilenniy = napeshi_uppand(0,60,"реально "," монет за клик",2)
 knopka_create(rect_button_yellow2, "sprites/controls/up_yellow.png", upgrade)
-knopka_create(rect_button_green, "sprites/controls/up_green.png", musicant_buy)
 
 vechirinka_create(rect_vecherinki1, "kvadrat")
 
 
 
-workyr3 = workeri.Workyr(100000,10,10,"sprites/worker/worker3_inv.png","sprites/worker/worker3.png",workyr3_rect,moneys,moneys_per_second)
-workyr2 = workeri.Workyr(10000,2,2,"sprites/worker/worker2_inv.png","sprites/worker/worker2.png",rect_musicant_copy,moneys,moneys_per_second,True)
+workyr3 = workeri.Workyr(rect_button_green2,100000,10,10,"sprites/worker/worker3_inv.png","sprites/worker/worker3.png",workyr3_rect,moneys,moneys_per_second)
+workyr2 = workeri.Workyr(rect_button_green,10000,2,2,"sprites/worker/worker2_inv.png","sprites/worker/worker2.png",rect_musicant,moneys,moneys_per_second,visible=True)
 workers.append(workyr3)
 workers.append(workyr2)
