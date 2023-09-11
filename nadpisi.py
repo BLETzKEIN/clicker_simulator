@@ -5,7 +5,7 @@ pygame.init()
 
 
 class Nadpis:
-    def __init__(self, x, y, strochka="", strochka2="", chislo=0, shrift = 30):
+    def __init__(self, x, y, strochka="", strochka2="", chislo=0, shrift = 30,):
         self.f = pygame.font.SysFont("arial", shrift, True, False)
         self.strochka = strochka
         self.strochka2 = strochka2

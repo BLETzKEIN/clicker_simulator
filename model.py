@@ -22,7 +22,7 @@ def upgrade():
         moneys.chislo -= upgrade_cena.chislo
         upgrade_cena.chislo *= 1.05
         za_click.chislo += za_click_upgrade.chislo
-        if level_musicant.chislo >= 20:
+        if workyr2.level.chislo >= 20:
             za_click_ysilenniy.chislo = za_click.chislo * 1.3
         else:
             za_click_ysilenniy.chislo = za_click.chislo
@@ -33,19 +33,24 @@ def upgrade():
 
 
 def musicant_buy():
-    global upgrade_musicant_cena_rost
-    if moneys.chislo < upgrade_musicant_cena.chislo:
-        zvyk.play()
-    else:
-        moneys.chislo -= upgrade_musicant_cena.chislo
-        upgrade_musicant_cena.chislo *= upgrade_musicant_cena_rost
-        upgrade_musicant_cena_rost += 0.02283
-        level_musicant.chislo += 1
-        moneys_per_second.chislo += 5
-        if level_musicant.chislo == 10:
-            workyr3.show()
-        if level_musicant.chislo == 20:
-            za_click_ysilenniy.chislo *= 1.3
+    if workyr2.level.chislo == 10:
+        workyr3.show()
+    if workyr2.level.chislo == 20:
+        za_click_ysilenniy.chislo *= 1.3
+    # global upgrade_musicant_cena_rost
+    # if moneys.chislo < upgrade_musicant_cena.chislo:
+    #     zvyk.play()
+    # else:
+    #     moneys.chislo -= upgrade_musicant_cena.chislo
+    #     upgrade_musicant_cena.chislo *= upgrade_musicant_cena_rost
+    #     upgrade_musicant_cena_rost += 0.02283
+    #     level_musicant.chislo += 1
+    #     moneys_per_second.chislo += 5
+    #     if level_musicant.chislo == 10:
+    #         workyr3.show()
+    #     if level_musicant.chislo == 20:
+    #         za_click_ysilenniy.chislo *= 1.3
+
 
 
 
@@ -81,7 +86,7 @@ rect_musicant = pygame.Rect([250, 300, 300, 400])
 rect_musicant_copy = pygame.Rect([600,300,300,400])
 workyr3_rect = pygame.Rect([650,300,200,400])
 rect_button_green = pygame.Rect([rect_musicant.right-40, rect_musicant.top + 160, 40, 40])
-rect_button_green = pygame.Rect([500, 500, 40, 40])
+rect_button_green = pygame.Rect([500, 453, 40, 40])
 rect_button_green2 = pygame.Rect([workyr3_rect.right-50,workyr3_rect.top,50,50])
 rect_vecherinki1 = pygame.Rect([200, 200, 400, 400])
 rect_vecherinki2 = pygame.Rect([700, 500, 400, 200])
@@ -91,7 +96,7 @@ moneys_per_second = napeshi_uppand(0, 90, strochka2=" монет в секунд
 za_click = napeshi_uppand(0, 30, strochka2=" монет за клик", chislo=2)
 level_bomj = napeshi_uppand(rect_bomj.left + 30, rect_bomj.top - 30, "уровень ", )
 moneys = napeshi_uppand(0, 0, strochka2=" монет",chislo=10000000)
-level_musicant = napeshi_uppand(rect_musicant.left + 30, rect_musicant.top - 30, "уровень ")
+# level_musicant = napeshi_uppand(rect_musicant.left + 30, rect_musicant.top - 30, "уровень ")
 upgrade_cena = napeshi_uppand(rect_button_yellow2.left, rect_button_yellow2.bottom, "апгреид стоит ", " монет", 10)
 buttons = []
 bykashki = []
@@ -106,7 +111,7 @@ vechirinka_create(rect_vecherinki1, "kvadrat")
 
 
 
-workyr3 = workeri.Workyr(rect_button_green2,100000,10,10,"sprites/worker/worker3_inv.png","sprites/worker/worker3.png",workyr3_rect,moneys,moneys_per_second)
-workyr2 = workeri.Workyr(rect_button_green,10000,2,2,"sprites/worker/worker2_inv.png","sprites/worker/worker2.png",rect_musicant,moneys,moneys_per_second,visible=True)
+workyr3 = workeri.Workyr(rect_button_green2,100000,10,"sprites/worker/worker3_inv.png","sprites/worker/worker3.png",workyr3_rect,moneys,moneys_per_second)
+workyr2 = workeri.Workyr(rect_button_green,10000,2,"sprites/worker/worker2_inv.png","sprites/worker/worker2.png",rect_musicant,moneys,moneys_per_second,visible=True)
 workers.append(workyr3)
 workers.append(workyr2)

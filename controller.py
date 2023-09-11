@@ -24,6 +24,8 @@ def events():
             exit(666)
         if s.type == pygame.MOUSEBUTTONDOWN:
             if s.button in [pygame.BUTTON_LEFT, pygame.BUTTON_RIGHT]:
+                if model.workyr2.rect_button_green2.collidepoint(s.pos):
+                    model.musicant_buy()
                 model.click()
                 # print(model.moneys)
             else:
