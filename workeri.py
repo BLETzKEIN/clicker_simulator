@@ -7,8 +7,13 @@ import nadpisi
 pygame.mixer.init()
 zvek = pygame.mixer.Sound("zvyki/puk.mp3")
 
+
 class Workyr:
-    def __init__(self,rect_button,cena_upgreid,rost_pribavki, worker,worker2, rect: pygame.Rect, money:nadpisi.Nadpis,moneys_per_second:nadpisi.Nadpis,x = None,y = None, visible=False ):
+    def __init__(self, rect_button, cena_upgreid, rost_pribavki, worker, worker2, rect: pygame.Rect,
+                 money: nadpisi.Nadpis, moneys_per_second: nadpisi.Nadpis, x=None, y=None, visible=False,
+                 nextWorker=None, za_click_ysillenye = None):
+        self.za_click_ysillenye = za_click_ysillenye
+        self.nextWorker = nextWorker
         self.x = x
         self.y = y
         self.rost_pribavki = rost_pribavki
@@ -31,11 +36,12 @@ class Workyr:
         if self.y is None:
             self.y = self.rect_button_green2.y + 40
 
-        self.level = nadpisi.Nadpis(self.rect.left,self.rect.top - 30,"уровень ")
+        self.level = nadpisi.Nadpis(self.rect.left, self.rect.top - 30, "уровень ")
 
-        self.cena = nadpisi.Nadpis(self.x,self.y ,"апгреид стоит "," монет",self.cena_upgreid,20)
+        self.cena = nadpisi.Nadpis(self.x, self.y, "апгреид стоит ", " монет", self.cena_upgreid, 20)
 
-        self.moneys_per_second_plus = nadpisi.Nadpis(self.rect.x,self.rect.bottom-30,strochka="+",strochka2=" монет в секунду",chislo= self.rost_pribavki)
+        self.moneys_per_second_plus = nadpisi.Nadpis(self.rect.x, self.rect.bottom - 30, strochka="+",
+                                                     strochka2=" монет в секунду", chislo=self.rost_pribavki)
 
     def prent(self):
         if self.money.chislo >= self.cena.chislo:
@@ -46,8 +52,10 @@ class Workyr:
             self.moneys_per_second_plus.chislo += self.rost_pribavki
         else:
             zvek.play()
-
-
+        if self.nextWorker != None and self.level.chislo == 10:
+            self.nextWorker.show()
+        if self.za_click_ysillenye != None and self.level.chislo == 20:
+            self.za_click_ysillenye.chislo *= 1.3
 
     def show(self):
         self.visible = True
@@ -56,7 +64,7 @@ class Workyr:
         if self.visible == False:
             return
         a = self.workir if self.level.chislo <= 0 else self.workir2
-        display.blit(a,[self.rect.x, self.rect.y])
+        display.blit(a, [self.rect.x, self.rect.y])
         print(self.button.rect)
         self.button.draw(display, True)
         self.level.view(display)

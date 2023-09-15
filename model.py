@@ -33,10 +33,10 @@ def upgrade():
 
 
 def musicant_buy():
-    if workyr2.level.chislo == 10:
-        workyr3.show()
-    if workyr2.level.chislo == 20:
-        za_click_ysilenniy.chislo *= 1.3
+    # if workyr2.level.chislo == 10:
+    #     workyr3.show()
+    # if workyr2.level.chislo == 20:
+    #     za_click_ysilenniy.chislo *= 1.3
     # global upgrade_musicant_cena_rost
     # if moneys.chislo < upgrade_musicant_cena.chislo:
     #     zvyk.play()
@@ -50,6 +50,7 @@ def musicant_buy():
     #         workyr3.show()
     #     if level_musicant.chislo == 20:
     #         za_click_ysilenniy.chislo *= 1.3
+    pass
 
 
 
@@ -112,6 +113,6 @@ vechirinka_create(rect_vecherinki1, "kvadrat")
 
 
 workyr3 = workeri.Workyr(rect_button_green2,100000,10,"sprites/worker/worker3_inv.png","sprites/worker/worker3.png",workyr3_rect,moneys,moneys_per_second)
-workyr2 = workeri.Workyr(rect_button_green,10000,2,"sprites/worker/worker2_inv.png","sprites/worker/worker2.png",rect_musicant,moneys,moneys_per_second,visible=True)
-workers.append(workyr3)
+workyr2 = workeri.Workyr(rect_button_green,10000,2,"sprites/worker/worker2_inv.png","sprites/worker/worker2.png",rect_musicant,moneys,moneys_per_second,visible=True,nextWorker=workyr3, za_click_ysillenye = za_click_ysilenniy)
 workers.append(workyr2)
+workers.append(workyr3)
