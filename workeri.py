@@ -9,9 +9,11 @@ zvek = pygame.mixer.Sound("zvyki/puk.mp3")
 
 
 class Workyr:
-    def __init__(self, rect_button, cena_upgreid, rost_pribavki, worker, worker2, rect: pygame.Rect,
+    def __init__(self, bonus_klicka, rect_button, cena_upgreid, rost_pribavki, worker, worker2, rect: pygame.Rect,
                  money: nadpisi.Nadpis, moneys_per_second: nadpisi.Nadpis, x=None, y=None, visible=False,
                  nextWorker=None, za_click_ysillenye = None):
+
+        self.bonus_klicka = bonus_klicka
         self.za_click_ysillenye = za_click_ysillenye
         self.nextWorker = nextWorker
         self.x = x
@@ -54,8 +56,8 @@ class Workyr:
             zvek.play()
         if self.nextWorker != None and self.level.chislo == 10:
             self.nextWorker.show()
-        if self.za_click_ysillenye != None and self.level.chislo == 20:
-            self.za_click_ysillenye.chislo *= 1.3
+        # if self.za_click_ysillenye != None and self.level.chislo == 20:
+        #     self.za_click_ysillenye.chislo *= bo
 
     def show(self):
         self.visible = True

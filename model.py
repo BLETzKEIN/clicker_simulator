@@ -22,10 +22,14 @@ def upgrade():
         moneys.chislo -= upgrade_cena.chislo
         upgrade_cena.chislo *= 1.05
         za_click.chislo += za_click_upgrade.chislo
-        if workyr2.level.chislo >= 20:
-            za_click_ysilenniy.chislo = za_click.chislo * 1.3
-        else:
-            za_click_ysilenniy.chislo = za_click.chislo
+
+        spisok_ysilenie = 0
+        for u in workers:
+            if u.level.chislo >= 20:
+                spisok_ysilenie += u.bonus_klicka
+        if spisok_ysilenie > 0:
+            za_click_ysilenniy.chislo *= spisok_ysilenie + 1
+
         za_click_upgrade.chislo += 2
         level_bomj.chislo += 1
     else:
@@ -87,14 +91,14 @@ rect_musicant = pygame.Rect([250, 300, 300, 400])
 rect_musicant_copy = pygame.Rect([600,300,300,400])
 workyr3_rect = pygame.Rect([650,300,200,400])
 rect_button_green = pygame.Rect([rect_musicant.right-40, rect_musicant.top + 160, 40, 40])
-rect_button_green = pygame.Rect([500, 453, 40, 40])
+# rect_button_green = pygame.Rect([500, 453, 40, 40])
 rect_button_green2 = pygame.Rect([workyr3_rect.right-50,workyr3_rect.top,50,50])
 rect_vecherinki1 = pygame.Rect([200, 200, 400, 400])
 rect_vecherinki2 = pygame.Rect([700, 500, 400, 200])
 napeshi = []
 moneys_per_second = napeshi_uppand(0, 90, strochka2=" монет в секунду",
                         chislo= 0)
-za_click = napeshi_uppand(0, 30, strochka2=" монет за клик", chislo=2)
+za_click = napeshi_uppand(0, 30, strochka2=" монет за клик", chislo=3000)
 level_bomj = napeshi_uppand(rect_bomj.left + 30, rect_bomj.top - 30, "уровень ", )
 moneys = napeshi_uppand(0, 0, strochka2=" монет",chislo=10000000)
 # level_musicant = napeshi_uppand(rect_musicant.left + 30, rect_musicant.top - 30, "уровень ")
@@ -112,7 +116,7 @@ vechirinka_create(rect_vecherinki1, "kvadrat")
 
 
 
-workyr3 = workeri.Workyr(rect_button_green2,100000,10,"sprites/worker/worker3_inv.png","sprites/worker/worker3.png",workyr3_rect,moneys,moneys_per_second)
-workyr2 = workeri.Workyr(rect_button_green,10000,2,"sprites/worker/worker2_inv.png","sprites/worker/worker2.png",rect_musicant,moneys,moneys_per_second,visible=True,nextWorker=workyr3, za_click_ysillenye = za_click_ysilenniy)
+workyr3 = workeri.Workyr(0.3, rect_button_green2,100000,10,"sprites/worker/worker3_inv.png","sprites/worker/worker3.png",workyr3_rect,moneys,moneys_per_second,za_click_ysillenye= za_click_ysilenniy)
+workyr2 = workeri.Workyr(0.2, rect_button_green,10000,2,"sprites/worker/worker2_inv.png","sprites/worker/worker2.png",rect_musicant,moneys,moneys_per_second,visible=True,nextWorker=workyr3, za_click_ysillenye = za_click_ysilenniy)
 workers.append(workyr2)
 workers.append(workyr3)
