@@ -23,15 +23,10 @@ def upgrade():
         upgrade_cena.chislo *= 1.05
         za_click.chislo += za_click_upgrade.chislo
 
-        spisok_ysilenie = 0
-        for u in workers:
-            if u.level.chislo >= 20:
-                spisok_ysilenie += u.bonus_klicka
-        if spisok_ysilenie > 0:
-            za_click_ysilenniy.chislo *= spisok_ysilenie + 1
-
         za_click_upgrade.chislo += 2
         level_bomj.chislo += 1
+        ysilenia()
+
     else:
         zvyk.play()
 
@@ -57,11 +52,23 @@ def musicant_buy():
     pass
 
 
+def ysilenia ():
+    w_ysilenie = 0
+    za_click_ysilenniy.chislo = za_click.chislo
+    for u in workers:
+        if u.level.chislo >= 20:
+            w_ysilenie += u.bonus_klicka
 
+    # za_click_ysilenniy.chislo = za_click.chislo * (1 + w_ysilenie)
+    if w_ysilenie > 0:
+        za_click_ysilenniy.chislo *= w_ysilenie + 1
+    else:
+        za_click_ysilenniy.chislo = za_click.chislo
 
 def always():
     for h in bykashki:
         h.model()
+
 
 
 def knopka_create(rect, kartinka, deistvie):
