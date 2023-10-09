@@ -2,6 +2,11 @@ import pygame
 
 pygame.init()
 
+def podmenatel(view_def):
+    def hcxghc(self,display):
+        print(self.strochka + str(int(self._chislo)) + self.strochka2)
+        view_def(self,display)
+    return hcxghc
 
 
 class Nadpis:
@@ -14,6 +19,7 @@ class Nadpis:
         self._chislo = chislo
         self.g = self.f.render(self.strochka + str(int(self._chislo)) + self.strochka2, True, [197, 36, 23], [52, 12, 10])
 
+    @podmenatel
     def view(self, display: pygame.Surface):
         display.blit(self.g, [self.x, self.y])
 
@@ -26,6 +32,9 @@ class Nadpis:
         if novoe_chislo != self._chislo:
             self._chislo = novoe_chislo
             self.g = self.f.render(self.strochka + str(int(self._chislo)) + self.strochka2, True, [197, 36, 23], [52, 12, 10])
+
+
+
 
 
 
