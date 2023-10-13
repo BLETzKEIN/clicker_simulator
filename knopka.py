@@ -1,5 +1,12 @@
 import pygame
 
+def zacherkivatel (draw_def):
+    def tryrrth(self,surface,show):
+        draw_def(self,surface,show)
+        pygame.draw.rect(surface,0,[self.rect.x-5,self.rect.y-5,self.rect.w+10,self.rect.h+10],5)
+        pygame.draw.line(surface,0,self.rect.topleft,self.rect.bottomright,10)
+    return tryrrth
+
 
 class Knopka:
     def __init__(self, rect, kartinka,deistvie):
@@ -11,6 +18,7 @@ class Knopka:
         kartinka = pygame.image.load(self.kartinka)
         self.kartinka_re = pygame.transform.scale(kartinka, [self.rect[2], self.rect[3]])
 
+    @zacherkivatel
     def draw(self, surface: pygame.Surface, show):
         if self.fon:
 
@@ -50,3 +58,6 @@ class Knopka:
             if i.type == pygame.MOUSEBUTTONDOWN:
                 if self.rect.collidepoint(i.pos):
                     self.deistvie()
+
+
+
